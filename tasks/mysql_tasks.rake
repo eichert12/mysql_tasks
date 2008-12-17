@@ -55,5 +55,6 @@ end
   end
   
   def mysql_execute(username, password, sql)
-    system("/usr/bin/env mysql -u #{username} -p'#{password}' --execute=\"#{sql}\"")
+    pwd_opt = password.nil? ? '' : "-p#{password}" 
+    system("/usr/bin/env mysql -u #{username} #{pwd_opt} --execute=\"#{sql}\"")
   end

@@ -20,7 +20,7 @@ namespace :db do
     
       cmd = "/usr/bin/env mysql -u #{user} #{database} < #{archive}"
       puts cmd + "... [password filtered]"
-      cmd += " -p'#{password}'"
+      cmd += " -p'#{password}'" unless password.nil?
       result = system(cmd)
     end
   
